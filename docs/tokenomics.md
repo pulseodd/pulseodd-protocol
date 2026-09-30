@@ -18,3 +18,14 @@ The current mainnet plan applies a 1% protocol fee to completed transactions. Th
 The fee route must be observable on-chain. Buyback execution should publish the source treasury transaction, execution route, token amount, and destination burn or treasury policy where applicable.
 
 These figures describe the current project plan. They are not a promise of returns, yield, token appreciation, or future liquidity.
+
+## Publication and implementation status
+
+- Buyback wallet: not yet published or verified.
+- Fee treasury wallet: not yet published or verified for this release.
+- Vesting: no unlock schedule published.
+- Intended token utility: fee discounts and buyback participation only. Fee discounts and automatic buyback execution are not implemented by PredictClassic; no discount rate is promised.
+- There is no requirement to hold the Pulseodd token to trade.
+- The supplied token reference is not proof of deployed protocol contracts, network identity, ownership or an audit.
+- The hardened source charges 1% of a non-refunded settled pool, not a transfer tax on every token transfer. See [the accounting specification](economic-model.md).
+- Planned launch: 8 October 2026, subject to security sign-off.
