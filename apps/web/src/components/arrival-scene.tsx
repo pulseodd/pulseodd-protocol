@@ -103,11 +103,17 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
           </button>
         </div>
 
-        <div className="pointer-events-none relative grid h-[320px] w-full place-items-center opacity-90 sm:h-[440px] lg:h-[580px] lg:opacity-100" aria-hidden="true">
-          <div className={`hero-logo-sweep relative grid h-52 w-52 place-items-center border border-lime-200/30 bg-[#c8ff38] shadow-[0_32px_100px_rgba(200,255,56,0.24)] sm:h-72 sm:w-72 ${entering ? "scale-[1.65]" : ""}`}>
-            <PulseoddMark className="h-full w-full text-[#c8ff38]" />
+        <div className="pointer-events-none relative grid h-[390px] w-full place-items-center opacity-90 sm:h-[500px] lg:h-[620px] lg:opacity-100" aria-hidden="true">
+          <div className={`hero-visual-tilt relative flex flex-col items-center ${entering ? "scale-[1.3]" : ""}`}>
+            <div className="hero-logo-sweep relative grid h-52 w-52 place-items-center border border-lime-200/30 bg-[#c8ff38] shadow-[0_32px_100px_rgba(200,255,56,0.24)] sm:h-72 sm:w-72">
+              <PulseoddMark className="h-full w-full text-[#c8ff38]" />
+            </div>
+            <div className="hero-wordmark mt-7 text-center">
+              <div className="font-mono text-4xl font-bold uppercase tracking-[0.14em] text-white sm:text-6xl">Pulseodd</div>
+              <div className="mt-2 font-mono text-[11px] uppercase tracking-[0.34em] text-lime-200/80 sm:text-xs">pulseodd.com</div>
+            </div>
+            <div className="absolute -bottom-8 -right-20 hidden border border-white/10 bg-white/[0.04] px-4 py-3 font-mono text-[10px] uppercase tracking-[0.18em] text-slate-400 backdrop-blur-sm sm:block">Robinhood Chain / Classic pools</div>
           </div>
-          <div className="absolute bottom-[11%] left-1/2 hidden -translate-x-1/2 border-t border-white/10 pt-3 text-center font-mono text-[11px] uppercase tracking-[0.18em] text-slate-500 lg:block">Pulseodd / Classic pools</div>
         </div>
       </div>
 

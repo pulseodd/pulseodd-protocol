@@ -144,6 +144,11 @@ body {
   transform-style: preserve-3d;
 }
 
+.hero-wordmark {
+  transform: translateZ(42px);
+  text-shadow: 0 2px 0 rgba(200, 255, 56, 0.2), 0 14px 42px rgba(0, 0, 0, 0.5);
+}
+
 .hero-depth-card {
   animation: card-drift 5.8s ease-in-out infinite;
   box-shadow: 18px 24px 48px rgba(0, 0, 0, 0.3);
