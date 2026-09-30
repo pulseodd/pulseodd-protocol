@@ -1,11 +1,12 @@
 "use client";
 
-import { ArrowUpRight, ChartNoAxesCombined, Rocket, ShieldCheck, Waves } from "lucide-react";
+import { ArrowUpRight, ChartNoAxesCombined, Copy, Check, Rocket, ShieldCheck, Waves } from "lucide-react";
 import { useCallback, useRef, useState } from "react";
 import { PulseoddMark } from "./pulseodd-mark";
 
 export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
   const [entering, setEntering] = useState(false);
+  const [copied, setCopied] = useState(false);
   const audioRef = useRef<{ context: AudioContext; gain: GainNode; interval: number } | null>(null);
 
   const startSound = useCallback(() => {
@@ -58,6 +59,12 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
     }, 360);
   }, [entering, onLaunch, startSound]);
 
+  const copyTokenAddress = useCallback(async () => {
+    await navigator.clipboard.writeText("0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98");
+    setCopied(true);
+    window.setTimeout(() => setCopied(false), 1_800);
+  }, []);
+
   return (<>
     <section onPointerDown={startSound} className={`relative isolate flex min-h-[100svh] items-center overflow-hidden bg-[#05080d] px-5 py-8 transition-[opacity,transform] duration-500 md:px-10 ${entering ? "scale-[1.025] opacity-0" : "opacity-100"}`}>
       <div className="hero-grid absolute inset-0 -z-10 opacity-45" />
@@ -79,6 +86,18 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
           <p className="mt-7 max-w-lg text-base leading-7 text-slate-400 md:text-lg">
             A focused prediction market for the next minute. Choose a side, enter before lock, and follow a visible settlement path from oracle to claim.
           </p>
+          <div className="mt-7 max-w-lg border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-lime-200/80">Public token reference</p>
+                <p className="mt-2 font-mono text-xs text-slate-300">Robinhood Chain / Pulseodd</p>
+              </div>
+              <button type="button" onClick={copyTokenAddress} aria-label="Copy Pulseodd token contract address" className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-white/15 text-slate-200 transition hover:border-lime-200 hover:text-lime-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-200" title="Copy token contract address">
+                {copied ? <Check size={16} /> : <Copy size={16} />}
+              </button>
+            </div>
+            <code className="mt-3 block overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[11px] text-white/80">0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</code>
+          </div>
           <button onClick={enterApp} className="mt-10 inline-flex items-center gap-2 border border-cyan-100/60 bg-cyan-100 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200">
             <Rocket size={17} /> Launch App
           </button>

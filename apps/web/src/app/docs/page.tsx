@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowLeft, CalendarDays, CircleDollarSign, Clock3, Landmark, ShieldCheck, Target, Wallet, Network, Coins } from "lucide-react";
+import { ArrowLeft, CalendarDays, CircleDollarSign, Clock3, Landmark, ShieldCheck, Target, Wallet, Network, Coins, Code2, GitBranch, TimerReset } from "lucide-react";
 
 const quickSections = [
   {
@@ -28,6 +28,30 @@ const roadmap = [
   { label: "Live now", title: "Robinhood network", body: "The Pulseodd product and protocol flow are currently presented as operational on Robinhood Chain, including market discovery, wallet interaction, round lifecycle, and settlement UX." },
   { label: "Ready", title: "Mainnet preparation", body: "The mainnet plan covers contract verification, oracle and keeper monitoring, treasury controls, buyback execution, incident response, and launch communications." },
   { label: "8 October 2026", title: "Mainnet launch", body: "Pulseodd's planned mainnet launch date is 8 October 2026, subject to final deployment checks, security sign-off, and network readiness." }
+];
+
+const technicalSections = [
+  {
+    icon: <Code2 size={20} />,
+    eyebrow: "Contract layer",
+    title: "A round is an explicit state machine.",
+    body: "Each market round carries an identifier, asset symbol, duration, entry deadline, end timestamp, reference price, final price, side totals, settlement state, and claim state. The contract rejects entries after lock, prevents double settlement, and keeps claims separate from settlement so payout execution remains user-driven.",
+    points: ["Open → locked → settled → claimable", "Per-round positions accumulate by account and side", "Tie outcomes follow the configured refund path", "Emergency pause is reserved for operational incidents"]
+  },
+  {
+    icon: <GitBranch size={20} />,
+    eyebrow: "Oracle and keeper",
+    title: "Display data and settlement authority stay separate.",
+    body: "The frontend chart is a read-only market context layer. A configured oracle adapter records the settlement observation, while the keeper coordinates time-based lock, settlement, and next-round creation. This separation makes the path auditable and allows monitoring to detect stale or missing inputs.",
+    points: ["Oracle adapter validates the settlement relay", "Keeper actions are time-gated and observable", "Round creation can be resumed after an interruption", "The UI surfaces status instead of inventing an outcome"]
+  },
+  {
+    icon: <TimerReset size={20} />,
+    eyebrow: "Operations",
+    title: "Mainnet readiness is a release process.",
+    body: "Before the 8 October 2026 target, deployment addresses, bytecode, permissions, oracle relayers, keeper credentials, treasury routes, monitoring alerts, and rollback procedures should be reviewed as one operational system. Environment-driven configuration keeps testnet and mainnet values isolated.",
+    points: ["Never expose keeper credentials to the browser", "Verify contract addresses and chain IDs at deploy time", "Track fee routing and buybacks with on-chain evidence", "Publish incident contacts and status updates"]
+  }
 ];
 
 export default function DocsPage() {
@@ -94,6 +118,16 @@ export default function DocsPage() {
               <h2 className="mt-4 text-2xl font-semibold">Robinhood Chain</h2>
               <p className="mt-3 leading-7 text-slate-600">The app is configured around Robinhood Chain infrastructure. Network parameters and deployment addresses remain environment-driven for safer releases.</p>
             </article>
+          </div>
+        </section>
+
+        <section className="border-t border-slate-200 py-12">
+          <div className="mb-7 flex items-end justify-between gap-6">
+            <div><p className="text-sm font-semibold uppercase tracking-[0.14em] text-emerald-700">Technical architecture</p><h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-tight md:text-4xl">The protocol is designed to be inspected at every step.</h2></div>
+            <p className="hidden max-w-xs text-right text-sm leading-6 text-slate-500 md:block">Web app → SDK → contracts → oracle → keeper → treasury</p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-3">
+            {technicalSections.map((section) => <article key={section.title} className="border border-slate-200 bg-white p-6"><div className="text-emerald-700">{section.icon}</div><p className="mt-7 font-mono text-[10px] uppercase tracking-[0.16em] text-slate-500">{section.eyebrow}</p><h3 className="mt-3 text-2xl font-semibold leading-tight">{section.title}</h3><p className="mt-4 leading-7 text-slate-600">{section.body}</p><ul className="mt-5 space-y-3 border-t border-slate-100 pt-5 text-sm leading-6 text-slate-700">{section.points.map((point) => <li key={point} className="flex gap-3"><span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-600" />{point}</li>)}</ul></article>)}
           </div>
         </section>
 
