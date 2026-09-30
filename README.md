@@ -1,8 +1,16 @@
-<div align="center">
-  <img src="./docs/pulseodd-readme-banner.svg" alt="Pulseodd protocol banner" width="100%" />
-  <h1>Pulseodd</h1>
-  <p><strong>pulseodd.com</strong><br />Short-horizon prediction markets with visible oracle settlement on Robinhood Chain.</p>
-</div>
+<table>
+  <tr>
+    <td align="center" width="72%" bgcolor="#05080d">
+      <h1><font color="#ffffff">Pulseodd</font></h1>
+      <p><font color="#c8ff38"><strong>pulseodd.com</strong></font></p>
+      <p><font color="#b7c5d4">SHORT-HORIZON MARKETS · ORACLE SETTLEMENT · CLASSIC POOLS</font></p>
+      <p><font color="#c8ff38">ROBINHOOD CHAIN · MAINNET 08 OCT 2026</font></p>
+    </td>
+    <td align="center" width="28%">
+      <img src="./apps/web/public/images/pulseodd-logo.jpg" alt="Official Pulseodd logo" width="230" />
+    </td>
+  </tr>
+</table>
 
 <p align="center">
   <a href="https://pulseodd.com">Live Application</a> ·
@@ -29,7 +37,7 @@ The date and economic parameters describe the current project plan. Contract byt
 
 ## Entry experience
 
-The first screen of the web application is a branded 3D identity scene. It combines the lime Pulseodd mark, a perspective-driven logo plate, the `Pulseodd` wordmark, and the `pulseodd.com` domain label before the user launches the market terminal. The implementation lives in [`apps/web/src/components/arrival-scene.tsx`](apps/web/src/components/arrival-scene.tsx) with motion and 3D depth styles in [`apps/web/src/app/globals.css`](apps/web/src/app/globals.css). The static README banner is maintained at [`docs/pulseodd-readme-banner.svg`](docs/pulseodd-readme-banner.svg).
+The first screen of the web application is a branded 3D identity scene. It uses the official Pulseodd logo image, animated with perspective rotation, depth, and layered shadows. The scene also displays the `Pulseodd` wordmark and `pulseodd.com` domain before users launch the market terminal. The implementation lives in [`apps/web/src/components/arrival-scene.tsx`](apps/web/src/components/arrival-scene.tsx), with motion styles in [`apps/web/src/app/globals.css`](apps/web/src/app/globals.css).
 
 Live entry route: [pulseodd.com](https://pulseodd.com)
 
