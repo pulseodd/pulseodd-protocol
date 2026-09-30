@@ -1,0 +1,32 @@
+<svg width="1400" height="420" viewBox="0 0 1400 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pulseodd protocol banner</title>
+  <desc id="desc">Pulseodd, pulseodd.com, a Robinhood Chain prediction market protocol.</desc>
+  <defs>
+    <linearGradient id="top" x1="0" y1="0" x2="1400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8FF38"/>
+      <stop offset="0.5" stop-color="#62D9FF"/>
+      <stop offset="1" stop-color="#C8FF38"/>
+    </linearGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M54 0H0V54" stroke="#9FD1E5" stroke-opacity="0.08"/>
+    </pattern>
+    <filter id="glow" x="-30%" y="-50%" width="160%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1400" height="420" rx="18" fill="#05080D"/>
+  <rect width="1400" height="420" rx="18" fill="url(#grid)"/>
+  <rect x="54" y="34" width="1292" height="5" rx="2.5" fill="url(#top)"/>
+  <path d="M90 308H410M1030 104H1300M1090 308H1300" stroke="#5EE7FF" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M120 348H460M980 72H1250" stroke="#C8FF38" stroke-opacity="0.45" stroke-width="2"/>
+  <g filter="url(#glow)">
+    <rect x="1118" y="148" width="126" height="126" transform="rotate(8 1118 148)" fill="#C8FF38"/>
+    <path d="M1154 194C1154 181 1164 171 1177 171H1192V227L1240 188L1263 215L1224 247L1261 278L1234 302L1192 263V286C1192 299 1182 309 1169 309H1154V263H1132C1119 263 1109 253 1109 240C1109 227 1119 217 1132 217H1154V194Z" fill="#07101A"/>
+  </g>
+  <text x="92" y="104" fill="#C8FF38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="4">ROBINHOOD CHAIN / PROTOCOL STATUS</text>
+  <text x="92" y="215" fill="white" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="88" font-weight="700" letter-spacing="1">Pulseodd</text>
+  <text x="98" y="258" fill="#BEEAFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" letter-spacing="7">PULSEODD.COM</text>
+  <text x="92" y="366" fill="#A7B6C8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2">SHORT-HORIZON MARKETS · ORACLE SETTLEMENT · CLASSIC POOLS</text>
+  <text x="1092" y="356" fill="#C8FF38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2">BLOCK: LIVE</text>
+</svg>

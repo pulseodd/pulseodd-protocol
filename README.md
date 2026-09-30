@@ -1,17 +1,35 @@
-# Pulseodd
+<div align="center">
+  <img src="./docs/pulseodd-readme-banner.svg" alt="Pulseodd protocol banner" width="100%" />
+  <h1>Pulseodd</h1>
+  <p><strong>pulseodd.com</strong><br />Short-horizon prediction markets with visible oracle settlement on Robinhood Chain.</p>
+</div>
 
-Pulseodd is a short-horizon UP/DOWN pooled prediction arena for Robinhood Chain. The current product status is presented as operational on Robinhood Chain, with the planned mainnet launch set for 8 October 2026.
+<p align="center">
+  <a href="https://pulseodd.com">Live Application</a> ·
+  <a href="https://pulseodd.com/docs">Technical Docs</a> ·
+  <a href="mailto:pulse@pulseodd.com">Support</a>
+</p>
+
+Pulseodd is a short-horizon UP/DOWN pooled prediction protocol for Robinhood Chain. The current release is presented as operational on Robinhood Chain, with a planned mainnet launch on **8 October 2026**.
+
+## Mainnet announcement
+
+Pulseodd is preparing for its mainnet release on **8 October 2026**. The launch plan includes verified deployment addresses, oracle and keeper monitoring, treasury controls, a public fee route, and a documented incident-response process.
+
+```text
+STATUS        Robinhood Chain product flow operational
+MAINNET       8 October 2026
+FEE           1% per completed transaction
+BUYBACK       80% of collected protocol fees earmarked
+TREASURY      20% reserved for operations and infrastructure
+TOKEN         0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98
+```
+
+The date and economic parameters describe the current project plan. Contract bytecode, chain, ownership, permissions, oracle state, and liquidity venue must be independently verified before interacting with any asset.
 
 ## Entry experience
 
-The first screen of the web application is a branded 3D identity scene:
-
-```text
-Pulseodd
-pulseodd.com
-```
-
-It combines the lime Pulseodd mark, a perspective-driven logo plate, the `Pulseodd` wordmark, and the `pulseodd.com` domain label before the user launches the market terminal. The implementation lives in [`apps/web/src/components/arrival-scene.tsx`](apps/web/src/components/arrival-scene.tsx) with motion and 3D depth styles in [`apps/web/src/app/globals.css`](apps/web/src/app/globals.css).
+The first screen of the web application is a branded 3D identity scene. It combines the lime Pulseodd mark, a perspective-driven logo plate, the `Pulseodd` wordmark, and the `pulseodd.com` domain label before the user launches the market terminal. The implementation lives in [`apps/web/src/components/arrival-scene.tsx`](apps/web/src/components/arrival-scene.tsx) with motion and 3D depth styles in [`apps/web/src/app/globals.css`](apps/web/src/app/globals.css). The static README banner is maintained at [`docs/pulseodd-readme-banner.svg`](docs/pulseodd-readme-banner.svg).
 
 Live entry route: [pulseodd.com](https://pulseodd.com)
 
