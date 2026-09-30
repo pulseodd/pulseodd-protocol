@@ -8,3 +8,5 @@ dist
 .next
 *.log
 .vercel
+*.tsbuildinfo
+video-assets/
