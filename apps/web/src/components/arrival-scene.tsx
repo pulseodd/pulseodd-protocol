@@ -1,8 +1,8 @@
 "use client";
 
 import { ArrowUpRight, ChartNoAxesCombined, Copy, Check, Rocket, ShieldCheck, Waves } from "lucide-react";
+import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
-import { PulseoddMark } from "./pulseodd-mark";
 
 export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
   const [entering, setEntering] = useState(false);
@@ -105,8 +105,15 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
 
         <div className="pointer-events-none relative grid h-[390px] w-full place-items-center opacity-90 sm:h-[500px] lg:h-[620px] lg:opacity-100" aria-hidden="true">
           <div className={`hero-visual-tilt relative flex flex-col items-center ${entering ? "scale-[1.3]" : ""}`}>
-            <div className="hero-logo-sweep relative grid h-52 w-52 place-items-center border border-lime-200/30 bg-[#c8ff38] shadow-[0_32px_100px_rgba(200,255,56,0.24)] sm:h-72 sm:w-72">
-              <PulseoddMark className="h-full w-full text-[#c8ff38]" />
+            <div className="hero-logo-card relative aspect-square w-52 sm:w-72">
+              <Image
+                src="/images/pulseodd-logo.jpg"
+                alt="Pulseodd lime square logo with a dark P and repeating OD pattern"
+                fill
+                priority
+                sizes="(max-width: 640px) 208px, 288px"
+                className="hero-logo-image object-cover"
+              />
             </div>
             <div className="hero-wordmark mt-7 text-center">
               <div className="font-mono text-4xl font-bold uppercase tracking-[0.14em] text-white sm:text-6xl">Pulseodd</div>

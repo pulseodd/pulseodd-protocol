@@ -10,6 +10,9 @@
     <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
       <path d="M54 0H0V54" stroke="#9FD1E5" stroke-opacity="0.08"/>
     </pattern>
+    <pattern id="od-pattern" width="62" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <text x="0" y="38" fill="#547A0B" fill-opacity="0.22" font-family="Arial, sans-serif" font-size="32" font-weight="700">OD</text>
+    </pattern>
     <filter id="glow" x="-30%" y="-50%" width="160%" height="200%">
       <feGaussianBlur stdDeviation="12" result="blur"/>
       <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -21,8 +24,9 @@
   <path d="M90 308H410M1030 104H1300M1090 308H1300" stroke="#5EE7FF" stroke-opacity="0.55" stroke-width="2"/>
   <path d="M120 348H460M980 72H1250" stroke="#C8FF38" stroke-opacity="0.45" stroke-width="2"/>
   <g filter="url(#glow)">
-    <rect x="1118" y="148" width="126" height="126" transform="rotate(8 1118 148)" fill="#C8FF38"/>
-    <path d="M1154 194C1154 181 1164 171 1177 171H1192V227L1240 188L1263 215L1224 247L1261 278L1234 302L1192 263V286C1192 299 1182 309 1169 309H1154V263H1132C1119 263 1109 253 1109 240C1109 227 1119 217 1132 217H1154V194Z" fill="#07101A"/>
+    <rect x="1112" y="124" width="190" height="190" transform="rotate(5 1112 124)" fill="#B9F12D"/>
+    <rect x="1112" y="124" width="190" height="190" transform="rotate(5 1112 124)" fill="url(#od-pattern)"/>
+    <text x="1154" y="278" fill="#07101A" font-family="Arial, Helvetica, sans-serif" font-size="150" font-weight="900">P</text>
   </g>
   <text x="92" y="104" fill="#C8FF38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="4">ROBINHOOD CHAIN / PROTOCOL STATUS</text>
   <text x="92" y="215" fill="white" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="88" font-weight="700" letter-spacing="1">Pulseodd</text>

@@ -60,16 +60,6 @@ body {
   }
 }
 
-@keyframes logo-sweep {
-  0%,
-  100% {
-    transform: translateX(-22px) rotate(-8deg);
-  }
-  50% {
-    transform: translateX(22px) rotate(8deg);
-  }
-}
-
 @keyframes ladder-up {
   0%,
   100% {
@@ -155,9 +145,24 @@ body {
   transform-style: preserve-3d;
 }
 
-.hero-logo-sweep {
-  animation: logo-sweep 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  transition: transform 500ms ease;
+.hero-logo-card {
+  animation: logo-sweep 6.5s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-style: preserve-3d;
+  box-shadow:
+    1px 1px 0 #acd82e,
+    2px 2px 0 #9bc327,
+    3px 3px 0 #89ad20,
+    4px 4px 0 #78991b,
+    5px 5px 0 #668316,
+    7px 10px 0 rgba(12, 21, 14, 0.72),
+    18px 30px 54px rgba(0, 0, 0, 0.55),
+    0 0 72px rgba(200, 255, 56, 0.2);
+  transition: transform 500ms ease, box-shadow 500ms ease;
+}
+
+.hero-logo-image {
+  border: 1px solid rgba(227, 255, 154, 0.72);
+  transform: translateZ(14px);
 }
 
 .ladder-pulse-up {
@@ -185,7 +190,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .hero-visual-tilt,
   .hero-depth-card,
-  .hero-logo-sweep,
+  .hero-logo-card,
   .ladder-pulse-up,
   .ladder-pulse-down,
   .ladder-radar-runner,
