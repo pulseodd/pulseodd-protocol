@@ -5,9 +5,12 @@ import {
   Activity,
   ArrowDown,
   ArrowUp,
+  ArrowUpRight,
+  Check,
   ChevronRight,
   CircleDollarSign,
   Clock3,
+  Copy,
   Radio,
   Rows3,
   Trophy,
@@ -21,6 +24,7 @@ import { toast } from "sonner";
 import { formatEther, parseEther } from "viem";
 import { useAccount, useBalance, useReadContract, useWriteContract } from "wagmi";
 import { paymentToken, rhConfig } from "@/config/rh";
+import { pulseoddToken } from "@/config/pulseodd-token";
 import { ArrivalScene } from "./arrival-scene";
 import { TradingView } from "./trading-view";
 import { PulseoddMark } from "./pulseodd-mark";
@@ -106,6 +110,7 @@ export function ClassicArena() {
     { id: 2, roundId: 1209, symbol: "NVDA", side: "DOWN", amount: "5 RH", status: "Live", claimable: "0 RH" }
   ]);
   const [demoBalance, setDemoBalance] = useState<number | null>(null);
+  const [tokenCopied, setTokenCopied] = useState(false);
   const { address, isConnected } = useAccount();
   const { writeContractAsync } = useWriteContract();
   const { data: balance } = useBalance({
@@ -115,6 +120,12 @@ export function ClassicArena() {
   });
   const asset = ASSETS[assetKey];
   const targetPrice = demoReferencePrices[assetKey] * 1.005;
+
+  const copyHeaderToken = () => {
+    void navigator.clipboard.writeText(pulseoddToken.address);
+    setTokenCopied(true);
+    window.setTimeout(() => setTokenCopied(false), 1_800);
+  };
 
   const demoStorageKey = address ? `pulseodd-test-usd:${address.toLowerCase()}` : null;
   const legacyDemoStorageKey = address ? `vanta-test-usd:${address.toLowerCase()}` : null;
@@ -387,6 +398,12 @@ export function ClassicArena() {
           <div className="flex flex-wrap items-center gap-3">
             <Link href="/docs" className="hidden text-sm font-medium text-slate-600 transition hover:text-slate-950 sm:block">Docs</Link>
             <a href="mailto:pulse@pulseodd.com" className="hidden text-sm font-medium text-slate-600 transition hover:text-slate-950 sm:block">Support</a>
+            <a href={pulseoddToken.buyUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-sm font-semibold text-emerald-700 transition hover:text-slate-950" title="Buy $PODD">
+              {pulseoddToken.symbol} <ArrowUpRight size={14} />
+            </a>
+            <button type="button" onClick={copyHeaderToken} aria-label="Copy $PODD contract address" className="inline-flex h-9 w-9 items-center justify-center border border-slate-200 text-slate-600 transition hover:border-slate-950 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600" title="Copy $PODD contract address">
+              {tokenCopied ? <Check size={15} /> : <Copy size={15} />}
+            </button>
             <div className="flex h-11 items-center gap-2 border border-slate-200 bg-slate-50 px-3 text-sm text-slate-700">
               <Wallet size={16} />
               {rhConfig.demo ? `${(demoBalance || 0).toLocaleString()} ${paymentSymbol}` : balance ? `${Number(balance.formatted).toFixed(2)} ${balance.symbol}` : `0 ${paymentSymbol}`}

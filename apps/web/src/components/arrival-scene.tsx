@@ -3,6 +3,7 @@
 import { ArrowUpRight, ChartNoAxesCombined, Copy, Check, Rocket, ShieldCheck, Waves } from "lucide-react";
 import Image from "next/image";
 import { useCallback, useRef, useState } from "react";
+import { pulseoddToken } from "@/config/pulseodd-token";
 
 export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
   const [entering, setEntering] = useState(false);
@@ -60,7 +61,7 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
   }, [entering, onLaunch, startSound]);
 
   const copyTokenAddress = useCallback(async () => {
-    await navigator.clipboard.writeText("0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98");
+    await navigator.clipboard.writeText(pulseoddToken.address);
     setCopied(true);
     window.setTimeout(() => setCopied(false), 1_800);
   }, []);
@@ -86,32 +87,24 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
           <p className="mt-7 max-w-lg text-base leading-7 text-slate-400 md:text-lg">
             A focused prediction market for the next minute. Choose a side, enter before lock, and follow a visible settlement path from oracle to claim.
           </p>
-          <div className="mt-7 max-w-lg border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm">
-            <div className="flex items-center justify-between gap-4">
-              <div>
-                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-lime-200/80">Public token reference</p>
-                <p className="mt-2 font-mono text-xs text-slate-300">Robinhood Chain / Pulseodd</p>
-              </div>
-              <button type="button" onClick={copyTokenAddress} aria-label="Copy Pulseodd token contract address" className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-white/15 text-slate-200 transition hover:border-lime-200 hover:text-lime-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-200" title="Copy token contract address">
-                {copied ? <Check size={16} /> : <Copy size={16} />}
-              </button>
-            </div>
-            <code className="mt-3 block overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[11px] text-white/80">0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</code>
-          </div>
-          <div className="mt-7 flex flex-wrap items-center gap-4 text-xs">
-            <span className="font-mono text-slate-500">CA: 0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</span>
-            <a
-              href="https://www.ponsfamily.com/launchpad/0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-1 font-semibold text-lime-200 transition hover:text-white"
-            >
-              Buy Token <ArrowUpRight size={14} />
-            </a>
-          </div>
           <button onClick={enterApp} className="mt-6 inline-flex items-center gap-2 border border-cyan-100/60 bg-cyan-100 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200">
             <Rocket size={17} /> Launch App
           </button>
+          <div className="mt-7 max-w-lg border border-white/10 bg-white/[0.04] p-4 backdrop-blur-sm">
+            <div className="flex items-start justify-between gap-4">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-lime-200/80">Public token</p>
+                <p className="mt-2 font-mono text-lg font-semibold text-white">{pulseoddToken.symbol}</p>
+              </div>
+              <button type="button" onClick={copyTokenAddress} aria-label="Copy $PODD contract address" className="inline-flex h-9 w-9 shrink-0 items-center justify-center border border-white/15 text-slate-200 transition hover:border-lime-200 hover:text-lime-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-lime-200" title="Copy $PODD contract address">
+                {copied ? <Check size={16} /> : <Copy size={16} />}
+              </button>
+            </div>
+            <code className="mt-3 block overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[11px] text-white/80">{pulseoddToken.address}</code>
+            <a href={pulseoddToken.buyUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-lime-200 transition hover:text-white">
+              Buy Token <ArrowUpRight size={14} />
+            </a>
+          </div>
         </div>
 
         <div className="pointer-events-none relative grid h-[390px] w-full place-items-center opacity-90 sm:h-[500px] lg:h-[620px] lg:opacity-100" aria-hidden="true">
