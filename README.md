@@ -76,6 +76,8 @@ The Robinhood Chain testnet faucet is available at `https://faucet.testnet.chain
 
 ## Contracts
 
+The visible protocol diff is represented by the `PredictClassicV2` protocol interface at [`packages/contracts/src/PredictClassicV2.sol`](packages/contracts/src/PredictClassicV2.sol). It lists the method names and preserves the existing [`PredictClassic.sol`](packages/contracts/src/PredictClassic.sol) lifecycle.
+
 ```bash
 forge test --root packages/contracts --offline
 ```
