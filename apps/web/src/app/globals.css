@@ -1,0 +1,195 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #f6f7f5;
+  color: #172018;
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04";
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 rgba(23, 247, 139, 0);
+  }
+  50% {
+    box-shadow: 0 0 34px rgba(23, 247, 139, 0.2);
+  }
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: perspective(1200px) rotateX(3deg) rotateY(-7deg) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: perspective(1200px) rotateX(-2deg) rotateY(4deg) translate3d(0, -12px, 20px);
+  }
+}
+
+@keyframes card-drift {
+  0%,
+  100% {
+    transform: perspective(800px) rotateY(-10deg) translateZ(0);
+  }
+  50% {
+    transform: perspective(800px) rotateY(-10deg) translate3d(-5px, -8px, 30px);
+  }
+}
+
+@keyframes logo-sweep {
+  0%,
+  100% {
+    transform: translateX(-22px) rotate(-8deg);
+  }
+  50% {
+    transform: translateX(22px) rotate(8deg);
+  }
+}
+
+@keyframes ladder-up {
+  0%,
+  100% {
+    transform: translateY(3px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes ladder-down {
+  0%,
+  100% {
+    transform: translateY(-3px);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+@keyframes radar-run {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(240px);
+  }
+}
+
+@keyframes flow-draw {
+  from {
+    opacity: 0.25;
+    stroke-dashoffset: 1200;
+  }
+  to {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes flow-dot {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.8));
+    transform: scale(0.85);
+  }
+  50% {
+    filter: drop-shadow(0 0 13px rgba(243, 108, 168, 1));
+    transform: scale(1.25);
+  }
+}
+
+.animate-page-in {
+  animation: page-in 620ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2.8s ease-in-out infinite;
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(153, 205, 228, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153, 205, 228, 0.07) 1px, transparent 1px);
+  background-size: 58px 58px;
+  mask-image: radial-gradient(ellipse 70% 70% at 54% 42%, black, transparent 78%);
+}
+
+.hero-visual-tilt {
+  animation: hero-float 8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transform-style: preserve-3d;
+}
+
+.hero-depth-card {
+  animation: card-drift 5.8s ease-in-out infinite;
+  box-shadow: 18px 24px 48px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+}
+
+.hero-logo-sweep {
+  animation: logo-sweep 4.8s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+  transition: transform 500ms ease;
+}
+
+.ladder-pulse-up {
+  animation: ladder-up 750ms ease-in-out infinite;
+}
+
+.ladder-pulse-down {
+  animation: ladder-down 750ms ease-in-out infinite;
+}
+
+.ladder-radar-runner {
+  animation: radar-run 2.5s ease-in-out infinite;
+}
+
+.ladder-flow-line {
+  filter: drop-shadow(0 0 7px rgba(243, 108, 168, 0.45));
+}
+
+.ladder-flow-dot {
+  animation: flow-dot 1.6s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-visual-tilt,
+  .hero-depth-card,
+  .hero-logo-sweep,
+  .ladder-pulse-up,
+  .ladder-pulse-down,
+  .ladder-radar-runner,
+  .ladder-flow-line,
+  .ladder-flow-dot {
+    animation: none;
+  }
+}
+
+.ticker-scrollbar::-webkit-scrollbar {
+  height: 0;
+}

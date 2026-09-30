@@ -1,0 +1,19 @@
+{
+  "name": "pulseodd",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "packages/sdk",
+    "scripts/keeper"
+  ],
+  "scripts": {
+    "dev:web": "npm --workspace apps/web run dev",
+    "build:web": "npm --workspace apps/web run build",
+    "typecheck": "npm --workspace apps/web run typecheck && npm --workspace packages/sdk run typecheck && npm --workspace scripts/keeper run typecheck",
+    "test:contracts": "forge test --root packages/contracts --offline",
+    "test": "npm run test:contracts && npm run typecheck"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.2"
+  }
+}
