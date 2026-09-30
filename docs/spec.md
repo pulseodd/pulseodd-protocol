@@ -1,6 +1,6 @@
 # Pulseodd Protocol Specification
 
-This document describes the hardened source release, not proof of a deployed or audited system. Existing deployments must not be assumed to implement these rules. See [release gates](checklist.md).
+**Status: proposed hardening specification; not implemented by this documentation update.** Contract names and candidate methods below identify the intended implementation location, not deployed features. No contract changes, tests or deployments accompany this update. See [current implementation versus plan](implementation-status.md) and [release gates](checklist.md).
 
 ## Roles and authority
 
@@ -9,7 +9,7 @@ This document describes the hardened source release, not proof of a deployed or 
 | User | Enter, exit before lock, claim with their own wallet | Choose settlement prices or withdraw another position |
 | Keeper | Create BTC rounds, lock and settle after their deadlines | Bypass timestamps or oracle validation |
 | Relayer | Publish attributed, positive price observations | Place arbitrary settlement results in a round |
-| Admin | Schedule configuration changes; emergency pause | Immediately change fee/oracle/keeper policy or sweep active stakes |
+| Admin (target) | Schedule configuration changes; emergency pause | Immediately change fee/oracle/keeper policy or sweep active stakes |
 
 Admin should be a reviewed multisig. Source independence is operational as well as contractual: two reporter addresses controlled by one party are not two independent markets.
 
@@ -29,7 +29,7 @@ Creation immediately opens a round. Claimable is a derived per-wallet state, not
 
 ## Risk policy
 
-Defaults: 80% side concentration, bootstrap liquidity of ten minimum stakes, 0.1% early-exit fee, 30-day winning claim window, 15-second keeper delay, and a 15-second observation age limit. Limits are explicit source defaults, not recommendations for mainnet.
+Candidate settings for review: 80% side concentration, bootstrap liquidity of ten minimum stakes, 0.1% early-exit fee, 30-day winning claim window, 15-second keeper delay, and a 15-second observation age limit. These are proposed settings, not source defaults or approved mainnet parameters. Only the 80% concentration threshold was specified by the incoming checklist; the remaining numerical choices need approval and implementation.
 
 When the opposite side is empty, the entire selected side is capped at the bootstrap amount. Splitting across wallets or transactions cannot bypass this cap. Once both sides have liquidity, additions exceeding 80% concentration are rejected. Exits may increase concentration; a user is never forced to retain a position to balance other users.
 
@@ -37,10 +37,20 @@ When the opposite side is empty, the entire selected side is capped at the boots
 
 ## Administrative changes
 
-Configuration is scheduled by the hash of the exact setter calldata with a fixed two-day delay. Anyone can inspect the pending hash and activation time; only the owner can apply it. An operation is consumed once and can be cancelled. Emergency pause is immediate; unpause is delayed. Ownership transfer remains two-step and should end at a multisig.
+Proposed design: configuration is scheduled by the hash of the exact setter calldata with a two-day candidate delay. Anyone can inspect the pending hash and activation time; only the owner can apply it. An operation is consumed once and can be cancelled. Emergency pause remains immediate; unpause would be delayed. Existing ownership transfer is two-step and should end at a multisig. None of the timelock behavior exists in the current contracts.
 
-Oracle address, treasury, fee, liquidity/risk limits and claim rules are captured at creation so governance cannot reprice an open round. The adapter has its own delayed reporter/risk configuration. `setKeeper` remains as a deprecated delayed compatibility entry point; `setKeepers` replaces the full allowlist.
+Target behavior: oracle address, treasury, fee, liquidity/risk limits and claim rules are captured at creation so governance cannot reprice an open round. The adapter should have its own delayed reporter/risk configuration. `setKeeper` would remain as a deprecated delayed compatibility entry point; proposed `setKeepers` would replace the full allowlist. Currently setters execute immediately and configuration is global.
 
 ## Scope and compatibility
 
-The existing `placeBet`, `lockRound`, `settleRound`, `createNextRound` and `claim` selectors remain. This repository does not promise storage-compatible upgrades of deployed contracts. Native currency and exact-transfer ERC-20 collateral are supported; rebasing and fee-on-transfer tokens are not. The public Pulseodd token CA is not automatically the collateral token.
+The existing `placeBet`, `lockRound`, `settleRound`, `createNextRound` and `claim` selectors must remain. The current bet entry point is named `placeBet`, not `bet`. This repository does not promise storage-compatible upgrades of deployed contracts. The current contract has native-currency and ERC-20 branches, but does not enforce exact received amounts; exact-transfer accounting is an additional release gate. Rebasing and fee-on-transfer tokens should not be used. The public Pulseodd token CA is not automatically the collateral token.
+
+## Target contract map
+
+- `PredictClassic`: concentration limits, early exit, per-round accounting, VOID, claim expiry, keeper list management and timelocked configuration.
+- `PriceOracleAdapter`: two-source observations and historical boundary snapshots.
+- `IPriceOracle`: compatible historical-read interface design (proposed `getPriceAt`).
+- `Treasury`: reviewed fee allocation and withdrawal policy; automatic buybacks are not present.
+- `TimelockedAdmin` (proposed new contract, not in source): schedule/cancel/apply administrative operations.
+
+All lifecycle statements above define the target behavior. Existing timing guards, user-driven claims and default tie refunds are present, but do not imply that the proposed safety extensions have shipped.

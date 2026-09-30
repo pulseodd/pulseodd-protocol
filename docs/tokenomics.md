@@ -27,5 +27,5 @@ These figures describe the current project plan. They are not a promise of retur
 - Intended token utility: fee discounts and buyback participation only. Fee discounts and automatic buyback execution are not implemented by PredictClassic; no discount rate is promised.
 - There is no requirement to hold the Pulseodd token to trade.
 - The supplied token reference is not proof of deployed protocol contracts, network identity, ownership or an audit.
-- The hardened source charges 1% of a non-refunded settled pool, not a transfer tax on every token transfer. See [the accounting specification](economic-model.md).
+- The current `PredictClassic` source initializes a 5% fee on the winning pool. The 1% rate and 80/20 allocation are plans, not implemented by this update. A total-settled-pool fee basis is a candidate for review, not a token transfer tax. See [the accounting specification](economic-model.md).
 - Planned launch: 8 October 2026, subject to security sign-off.

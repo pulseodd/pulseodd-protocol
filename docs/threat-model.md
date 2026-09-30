@@ -1,6 +1,8 @@
 # Threat Model
 
-| Threat | Source-level mitigation | Residual risk / release gate |
+**Status: design review notes, not an audit.** The mitigations below are target controls unless the current-code status says otherwise. Tests were not run and contract source was not changed in this documentation-only update.
+
+| Threat | Target mitigation | Residual risk / release gate |
 | --- | --- | --- |
 | Late bet / double settlement | Timestamp and state guards | Inclusion timing and chain reorganization |
 | Oracle manipulation | Two attributed streams, age and deviation checks | Colluding reporters or shared upstream source |
@@ -19,4 +21,4 @@ The browser is never a settlement authority. The indexer is a read model, not a 
 
 ## Verification
 
-Unit, fuzz and stateful invariants cover reserve conservation, timing, replay, exits and oracle failures. They do not constitute an audit or a proof of all possible behaviors. Public testnet execution, bytecode verification, multisig review, independent security assessment and a sustained BTC 60s/300s soak are still required. See [audit notes](audit-notes.md).
+Planned unit, fuzz and stateful invariants must cover reserve conservation, timing, replay, exits and oracle failures. Their existence or success is not claimed. Tests do not constitute an audit or a proof of all possible behaviors. Public testnet execution, bytecode verification, multisig review, independent security assessment and a sustained BTC 60s/300s soak remain required. See [audit notes](audit-notes.md) and [validation plan](validation-plan.md).
