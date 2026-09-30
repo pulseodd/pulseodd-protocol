@@ -1,16 +1,6 @@
-<table>
-  <tr>
-    <td align="center" width="72%" bgcolor="#05080d">
-      <h1><font color="#ffffff">Pulseodd</font></h1>
-      <p><font color="#c8ff38"><strong>pulseodd.com</strong></font></p>
-      <p><font color="#b7c5d4">SHORT-HORIZON MARKETS · ORACLE SETTLEMENT · CLASSIC POOLS</font></p>
-      <p><font color="#c8ff38">ROBINHOOD CHAIN · MAINNET 08 OCT 2026</font></p>
-    </td>
-    <td align="center" width="28%">
-      <img src="./apps/web/public/images/pulseodd-logo.jpg" alt="Official Pulseodd logo" width="230" />
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <img src="./docs/pulseodd-readme-banner.svg" alt="Pulseodd protocol banner" width="100%" />
+</div>
 
 <p align="center">
   <a href="https://pulseodd.com">Live Application</a> ·

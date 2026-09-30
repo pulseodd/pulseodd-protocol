@@ -1,0 +1,41 @@
+<svg width="1400" height="420" viewBox="0 0 1400 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pulseodd protocol banner</title>
+  <desc id="desc">Pulseodd, pulseodd.com, short-horizon markets on Robinhood Chain.</desc>
+  <defs>
+    <linearGradient id="top" x1="0" y1="0" x2="1400" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8FF38"/><stop offset="0.5" stop-color="#62D9FF"/><stop offset="1" stop-color="#C8FF38"/>
+    </linearGradient>
+    <pattern id="grid" width="54" height="54" patternUnits="userSpaceOnUse">
+      <path d="M54 0H0V54" stroke="#9FD1E5" stroke-opacity="0.08"/>
+    </pattern>
+    <filter id="logo-shadow" x="-40%" y="-40%" width="180%" height="190%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blur"/>
+      <feOffset dy="18" result="offset"/>
+      <feComponentTransfer><feFuncA type="linear" slope="0.45"/></feComponentTransfer>
+      <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <pattern id="od-pattern" width="62" height="52" patternUnits="userSpaceOnUse" patternTransform="rotate(-18)">
+      <text x="0" y="38" fill="#547A0B" fill-opacity="0.22" font-family="Arial, sans-serif" font-size="32" font-weight="700">OD</text>
+    </pattern>
+    <clipPath id="logo-clip"><rect width="190" height="190"/></clipPath>
+  </defs>
+  <rect width="1400" height="420" rx="18" fill="#05080D"/>
+  <rect width="1400" height="420" rx="18" fill="url(#grid)"/>
+  <rect x="54" y="34" width="1292" height="5" rx="2.5" fill="url(#top)"/>
+  <path d="M90 308H410M1030 104H1300M1090 308H1300" stroke="#5EE7FF" stroke-opacity="0.55" stroke-width="2"/>
+  <path d="M120 348H460M980 72H1250" stroke="#C8FF38" stroke-opacity="0.45" stroke-width="2"/>
+  <g transform="translate(1102 118) rotate(7 95 95)" filter="url(#logo-shadow)">
+    <g clip-path="url(#logo-clip)">
+      <rect width="190" height="190" fill="#B9F12D"/>
+      <rect width="190" height="190" fill="url(#od-pattern)"/>
+      <path d="M47 166V25H119C159 25 180 46 180 81C180 116 159 138 119 138H85V166H47ZM85 88H117C132 88 140 82 140 71C140 60 132 54 117 54H85V88Z" fill="#07101A"/>
+      <image x="0" y="0" width="190" height="190" preserveAspectRatio="xMidYMid slice" href="https://raw.githubusercontent.com/pulseodd/pulseodd-protocol/main/apps/web/public/images/pulseodd-logo.jpg"/>
+    </g>
+    <rect width="190" height="190" fill="none" stroke="#E3FF9A" stroke-opacity="0.72" stroke-width="2"/>
+  </g>
+  <text x="92" y="104" fill="#C8FF38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" letter-spacing="4">ROBINHOOD CHAIN / PROTOCOL STATUS</text>
+  <text x="92" y="215" fill="white" font-family="ui-sans-serif, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="88" font-weight="700">Pulseodd</text>
+  <text x="98" y="258" fill="#BEEAFF" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" letter-spacing="7">PULSEODD.COM</text>
+  <text x="92" y="366" fill="#A7B6C8" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="15" letter-spacing="2">SHORT-HORIZON MARKETS · ORACLE SETTLEMENT · CLASSIC POOLS</text>
+  <text x="1092" y="356" fill="#C8FF38" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" letter-spacing="2">BLOCK: LIVE</text>
+</svg>
