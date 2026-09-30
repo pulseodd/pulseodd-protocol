@@ -2,6 +2,19 @@
 
 Pulseodd is a short-horizon UP/DOWN pooled prediction arena for Robinhood Chain. The current product status is presented as operational on Robinhood Chain, with the planned mainnet launch set for 8 October 2026.
 
+## Entry experience
+
+The first screen of the web application is a branded 3D identity scene:
+
+```text
+Pulseodd
+pulseodd.com
+```
+
+It combines the lime Pulseodd mark, a perspective-driven logo plate, the `Pulseodd` wordmark, and the `pulseodd.com` domain label before the user launches the market terminal. The implementation lives in [`apps/web/src/components/arrival-scene.tsx`](apps/web/src/components/arrival-scene.tsx) with motion and 3D depth styles in [`apps/web/src/app/globals.css`](apps/web/src/app/globals.css).
+
+Live entry route: [pulseodd.com](https://pulseodd.com)
+
 ## Public token reference
 
 - Token contract address: `0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98`
