@@ -112,6 +112,10 @@ export default function DocsPage() {
               <h2 className="mt-4 text-2xl font-semibold">Pulseodd token on Robinhood Chain</h2>
               <p className="mt-3 leading-7 text-slate-600">This is the public contract address supplied for the Pulseodd token. Always verify the chain, bytecode, ownership state, and liquidity venue before interacting with any asset.</p>
               <code className="mt-5 block overflow-x-auto border border-slate-200 bg-slate-50 p-4 font-mono text-sm text-slate-900">0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</code>
+              <div className="mt-4 flex flex-wrap items-center gap-4 text-sm">
+                <span className="font-mono text-slate-500">CA: 0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</span>
+                <a href="https://www.ponsfamily.com/launchpad/0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98" target="_blank" rel="noreferrer" className="font-semibold text-emerald-700 underline decoration-emerald-300 underline-offset-4 hover:text-slate-950">Buy Token</a>
+              </div>
             </article>
             <article className="border border-slate-200 bg-white p-6">
               <div className="flex items-center gap-3 text-emerald-700"><Network size={21} /><p className="text-xs font-semibold uppercase tracking-[0.16em]">Network status</p></div>

@@ -98,7 +98,18 @@ export function ArrivalScene({ onLaunch }: { onLaunch: () => void }) {
             </div>
             <code className="mt-3 block overflow-hidden text-ellipsis whitespace-nowrap font-mono text-[11px] text-white/80">0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</code>
           </div>
-          <button onClick={enterApp} className="mt-10 inline-flex items-center gap-2 border border-cyan-100/60 bg-cyan-100 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200">
+          <div className="mt-7 flex flex-wrap items-center gap-4 text-xs">
+            <span className="font-mono text-slate-500">CA: 0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98</span>
+            <a
+              href="https://www.ponsfamily.com/launchpad/0x3E5300c0664Ae607bF0A9A2D84A4aAD6bEbbfB98"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1 font-semibold text-lime-200 transition hover:text-white"
+            >
+              Buy Token <ArrowUpRight size={14} />
+            </a>
+          </div>
+          <button onClick={enterApp} className="mt-6 inline-flex items-center gap-2 border border-cyan-100/60 bg-cyan-100 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-cyan-200">
             <Rocket size={17} /> Launch App
           </button>
         </div>
